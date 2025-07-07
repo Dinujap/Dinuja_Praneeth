@@ -1,29 +1,30 @@
 import React from 'react';
 import { words } from '../Constant/Index';
+import Button from '../Components/Button';
+import HeroExperience from '../Components/HeroModels/HeroExperience';
 
 
 const Hero = () => {
   return (
     <section id='hero' className='relative overflow-hidden'>
-        <div className='absolute top-0 left-0 z-10'>
-            <img src="/Images/bg.png" alt='background'></img>            
-        </div>
-        <div className='hero-layout'>
-          <header className='flex flex-col justify-center md:w-full w-screen md:px-20 px-5'>
+      <div className='absolute top-0 left-0 z-10'>
+        <img src="/Images/bg.png" alt='background'></img>            
+      </div>
+      <div className='hero-layout'>
+        {/** hero content */}
+        <header className='flex flex-col justify-center md:w-full w-screen md:px-20 px-5'>
+          <div className='flex flex-col gap-7'>
             <div className='hero-text'>
-              <h1>
-                Shaping
+            <h1>
+              Shaping
                 <span className='slide'>
                   <span className='wrapper'>
                     {words.map((word) => (
                       <span key={word.text} className='flex items-center md:gap-3 gap-1 pb-2'> 
-                        <img src={word.imgPath} alt={word.text} className='xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50'>
-
-                        </img>
+                        <img src={word.imgPath} alt={word.text} className='xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white'></img>
                         <span>
                           {word.text}
                         </span>
-
                       </span>
                     ))}
                   </span>
@@ -32,8 +33,29 @@ const Hero = () => {
               <h1>into real projects</h1>
               <h1>that deliver results</h1>
             </div>
-          </header>
-        </div>
+            <p className='text-white md:text-xl relative z-10 pointer-events-none'>
+                Hi,  I'm a passionate and dedicated Computation & Management undergraduate
+ from University of Peradeniya, currently pursuing my degree with a strong
+ interest in software engineering. I have hands-on experience in full-stack
+ development using technologies like React, Spring Boot, and MySQL. I'm
+ eager to contribute to real-world projects, continuously improve my coding
+ skills, and grow as a professional developer in the tech industry.
+              </p>
+              <Button 
+                text="See My Work"
+                className="md:w-80 md:h-16 w-60 h-12"
+                id="counter"
+              ></Button>
+                
+          </div>
+        </header>
+        {/** implement the 3d model */}
+        <figure>
+          <div className='hero-3d-layout'> 
+            <HeroExperience/>
+          </div>
+        </figure>
+      </div>
     </section>
     
   )
